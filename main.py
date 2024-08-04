@@ -27,6 +27,8 @@ driver.get("https://www.dcard.tw/f")
 
 # 以name屬性取得html元素
 search = driver.find_element(By.NAME, "query")
+# 清空輸入框(清掉預設文字)
+search.clear()
 # 於html輸入框中輸入指定文字
 search.send_keys("何冰嬌")
 # 按下ENTER
@@ -44,6 +46,14 @@ for title in titles:
     print(title.text)
     # 取得title存放的標籤們內的文字
 
+# 依據連結文字抓出html元素
+link = driver.find_element(By.LINK_TEXT("文章標題"))
+# 點擊html元素
+link.click()
+# 上一頁
+driver.back()
+# 下一頁
+driver.forward()
 
 # 指定運行時間
 time.sleep(5)
